@@ -1,0 +1,2 @@
+scaleway_api_url: "https://cp-par1.scaleway.com"
+scaleway_api_token: "{{ lookup('env', 'SCALEWAY_TOKEN') }}"

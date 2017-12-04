@@ -1,0 +1,17 @@
+version: '2'
+
+services:
+  ansible:
+    container_name: "scaleway"
+    image: nouchka/ansible
+    entrypoint: ansible-playbook tasks/main.yml
+    environment:
+      - ANSIBLE_HOST_KEY_CHECKING=False
+    env_file:
+      - .env
+    volumes:
+      - ~/.ssh/id_rsa:/home/developer/.ssh/id_rsa
+      - ~/.ssh/id_rsa.pub:/home/developer/.ssh/id_rsa.pub
+      - ~/.ssh/known_hosts:/home/developer/.ssh/known_hosts
+      - ./hosts:/etc/ansible/hosts
+      - ./:/home/developer/config

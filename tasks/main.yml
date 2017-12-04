@@ -1,0 +1,13 @@
+---
+- name: Fetch servers
+  uri:
+    url: "{{scaleway_api_url}}/servers"
+    method: POST
+    headers:
+      Content-Type: "application/json"
+      X-Auth-Token: "{{scaleway_api_token}}"
+    body: 
+      title: "{{ucname}}"
+      key: "{{ key }}"
+    body_format: json
+    status_code: 201
